@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:06:55 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/02/15 20:06:59 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/04/08 13:54:52 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ char	*ft_storage_plus_buffer(char *storage, char *buff)
 	free(storage);
 	return (str);
 }
+
+/*
+Finds a specific character in a string and returns a pointer pointing to
+its first occurrence, returns NULL if the character is not found.
+*/
 
 char	*ft_strchr(const char *s, int c)
 {

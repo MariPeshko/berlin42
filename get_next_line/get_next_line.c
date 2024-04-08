@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:06:12 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/02/15 20:06:20 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/04/08 13:55:14 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
+/*
+Initializes an empty string for 'storage', if NULL.
+
+The function dynamically allocates memory for a 'buff' to read data, and it
+manages the concatenation of the 'buff' with the existing 'storage'.
+If an error occurs during reading or memory allocation, it frees the allocated
+memory and returns NULL.
+
+Parameters:
+	- int fd: File descriptor representing the file to read from.
+	- stash: String containing the accumulated data read so far.
+*/
+
 char	*read_until_newline_or_eof(int fd, char *storage)
 {
 	int		bytes;
@@ -44,10 +57,8 @@ char	*read_until_newline_or_eof(int fd, char *storage)
 	if (!storage)
 		storage = (char *)ft_calloc(1, sizeof(char));
 	buff = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-	if (!buff)
-		return (NULL);
 	bytes = 1;
-	while (!ft_strchr(storage, '\n') && bytes != 0)
+	while (bytes != 0)
 	{
 		bytes = read(fd, buff, BUFFER_SIZE);
 		if (bytes == -1)
@@ -58,6 +69,8 @@ char	*read_until_newline_or_eof(int fd, char *storage)
 		}
 		buff[bytes] = '\0';
 		storage = ft_storage_plus_buffer(storage, buff);
+		if (ft_strchr(storage, '\n'))
+			break ;
 	}
 	free(buff);
 	return (storage);
@@ -112,6 +125,14 @@ char	*ft_trim_until_newline(char *storage)
 	return (upd_storage);
 }
 
+/*
+Function 'ft_extract_line': A complete line (meaning until '\n' or EOF)
+is extracted from the 'storage'.
+Function 'ft_trim_until_newline': Afterward, the 'storage'
+is trimmed so it only contains content after the newline
+character, which will be stored and used in the next function call.
+*/
+
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -121,18 +142,22 @@ char	*get_next_line(int fd)
 	{
 		if (storage != NULL)
 			free(storage);
+		storage = NULL;
 		return (NULL);
 	}
 	storage = read_until_newline_or_eof(fd, storage);
 	if (!storage)
+	{
+		storage = NULL;
 		return (NULL);
+	}
 	line = ft_extract_line(storage);
 	storage = ft_trim_until_newline(storage);
 	return (line);
 }
-/* #include <fcntl.h>
-#include <stdio.h>
 
+/*
+# include <stdio.h>
 int	main(void)
 {
 	char *line;
@@ -170,6 +195,7 @@ int	main(void)
 	close(fd);
 	return (0);
 } */
+
 /* int	main(void)
 {
 	char *line;

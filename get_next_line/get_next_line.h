@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:06:34 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/02/15 20:06:38 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/04/08 13:54:33 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 5
 # endif
 
 # include <stdlib.h> // malloc(), free()
 # include <unistd.h> // read()
 # include <stddef.h> // size_t
+# include <fcntl.h>
 
 size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
