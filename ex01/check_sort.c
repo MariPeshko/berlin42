@@ -2,29 +2,25 @@
 #include <stdio.h>  // printf
 #include <stdlib.h> // atoi
 
-typedef struct stack
-{
-    int nbr;
-    struct stack *next;
-} n_stack;
+#include "./push_swap.h"
 
-// This function frees the stack.
-void	ft_free(n_stack **lst)
+// This function frees the a.
+void ft_free(n_stack **lst)
 {
-	n_stack	*tmp;
+    n_stack *tmp;
 
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		(*lst)->nbr = 0;
-		free(*lst);
-		*lst = tmp;
-	}
+    if (!lst)
+        return;
+    while (*lst)
+    {
+        tmp = (*lst)->next;
+        (*lst)->nbr = 0;
+        free(*lst);
+        *lst = tmp;
+    }
 }
 
-// This function returns the last element of the stack.
+// This function returns the last element of the a.
 n_stack *ft_lstlast(n_stack *lst)
 {
     if (!lst)
@@ -34,7 +30,7 @@ n_stack *ft_lstlast(n_stack *lst)
     return (lst);
 }
 
-// Function to add a new node to the stack from back side
+// Function to add a new node to the a from back side
 void ft_add_back(n_stack **my_node, n_stack *stack_new)
 {
     if (!my_node)
@@ -50,7 +46,7 @@ void ft_add_back(n_stack **my_node, n_stack *stack_new)
     }
 }
 
-// Creates new stack node with given number.
+// Creates new a node with given number.
 n_stack *ft_stack_new(int content)
 {
     n_stack *new;
@@ -67,10 +63,10 @@ n_stack *ft_stack_new(int content)
 }
 
 // While arguments are valid, we start to add them
-// into stack here one by one with while loop.
+// into a here one by one with while loop.
 // Atoi takes the number and turn it into an integer
 // value where we can make math operations.
-// With stack new we create a new node for the current
+// With a new we create a new node for the current
 // argument without linking it to list.
 // We make linking stage in ft_add_back call.
 
@@ -95,7 +91,7 @@ n_stack *ft_procces(int argc, char **argv)
         {
             printf("\n%d loop in ft_procces\n", i);
             j = atoi(argv[i]);
-            printf("j = %d\n\n", j);
+            printf("j = %d\n", j);
             ft_add_back(&a, ft_stack_new(j));
             i++;
         }
@@ -106,21 +102,16 @@ n_stack *ft_procces(int argc, char **argv)
 int main(int argc, char **argv)
 {
     int i;
+    n_stack *a;
+    int check;
 
-    n_stack *my_node;
+    a = ft_procces(argc, argv);
 
-    /*{        printf("Error: Memory allocation failed\n");
-        return 1;    }*/
-    // printf("The quantity of arguments: %d\n", (argc - 1));
-    // printf("The first argument is: %s\n", strings[1]);
-    // printf("The integer in the first node is: %d\n", my_node->nbr);
-
-    my_node = ft_procces(argc, argv);
-
-    if (my_node == NULL)
+    if (a == NULL)
         printf("Linked list is empty");
+
     n_stack *ptr = NULL;
-    ptr = my_node;
+    ptr = a;
     i = 1;
     while (ptr != NULL)
     {
@@ -129,10 +120,19 @@ int main(int argc, char **argv)
         i++;
     }
 
-    ft_free(&my_node);
-    
+    check = ft_checksort(&a);
+    if (check == 0)
+        printf("Numbers are sorted!\n");
+    if (check == 2)
+        printf("There is only 1 number\n");
+    if (check == 1)
+        printf("Oh no! Numbers are not sorted\n");
+
+    ft_sort(&a);
+
+    ft_free(&a);
     free(ptr);
-    my_node = NULL;
+    a = NULL;
     ptr = NULL;
     return (0);
 }
