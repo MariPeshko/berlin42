@@ -37,7 +37,6 @@ void ft_add_back(n_stack **my_node, n_stack *stack_new)
         return;
     if (!*my_node)
     {
-        printf("I'm here ft_add_back in if (!*my_node)\n");
         *my_node = stack_new;
     }
     else
@@ -89,9 +88,7 @@ n_stack *ft_procces(int argc, char **argv)
     {
         while (i < argc)
         {
-            printf("\n%d loop in ft_procces\n", i);
             j = atoi(argv[i]);
-            printf("j = %d\n", j);
             ft_add_back(&a, ft_stack_new(j));
             i++;
         }
@@ -120,7 +117,7 @@ int main(int argc, char **argv)
         i++;
     }
 
-    check = ft_checksort(&a);
+    check = ft_checksort(a);
     if (check == 0)
         printf("Numbers are sorted!\n");
     if (check == 2)
@@ -130,8 +127,25 @@ int main(int argc, char **argv)
 
     ft_sort(&a);
 
+    check = ft_checksort(a);
+    if (check == 0)
+        printf("Numbers are sorted!\n");
+    if (check == 2)
+        printf("There is only 1 number\n");
+    if (check == 1)
+        printf("Oh no! Numbers are not sorted\n");
+
+    ptr = a;
+    i = 1;
+    while (ptr != NULL)
+    {
+        printf("%d node is %d\n", i, ptr->nbr);
+        ptr = ptr->next;
+        i++;
+    }
+    ft_free(&ptr);
     ft_free(&a);
-    free(ptr);
+    
     a = NULL;
     ptr = NULL;
     return (0);

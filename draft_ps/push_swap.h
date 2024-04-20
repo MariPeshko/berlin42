@@ -14,8 +14,12 @@ typedef struct stack
     struct stack *next;
 } n_stack;
 
-int ft_checksort(n_stack **stack);
+void ft_sa(n_stack **a);
+
+int ft_checksort(n_stack *stack_a);
 
 void ft_sort(n_stack **stack_a);
+
+int ft_lstsize(n_stack *lst);
 
 #endif
