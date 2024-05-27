@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 21:23:01 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/05/21 11:20:29 by mpeshko          ###   ########.fr       */
+/*   Created: 2023/05/04 16:29:24 by bedos-sa          #+#    #+#             */
+/*   Updated: 2023/05/15 10:51:20 by bedos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t			i;
+	unsigned char	ch;
+	unsigned char	*str;	
 
 	i = 0;
-	while (str[i] != '\0')
+	ch = (unsigned char)c;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		if (str[i] == ch)
+			return ((void *)&str[i]);
 		i++;
-	return (i);
+	}
+	return (NULL);
 }
