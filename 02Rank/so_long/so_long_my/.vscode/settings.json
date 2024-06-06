@@ -1,6 +1,16 @@
 {
     "files.associations": {
         "xkblib.h": "c",
-        "so_long.h": "c"
+        "so_long.h": "c",
+        "*.tcc": "c",
+        "ostream": "c",
+        "streambuf": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "get_next_line.h": "c",
+        "libft.h": "c",
+        "ft_printf.h": "c",
+        "random": "c"
     }
 }

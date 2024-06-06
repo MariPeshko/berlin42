@@ -12,18 +12,8 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && str[i] != '\0')
-		i++;
-	return (i);
-}
-
 // ft_calloc and ft_bzero
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc_bzero(size_t count, size_t size)
 {
 	void	*ptr;
 	char	*str;

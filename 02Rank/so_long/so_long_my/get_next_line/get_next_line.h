@@ -23,8 +23,7 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
-size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t count, size_t size);
+void	*ft_calloc_bzero(size_t count, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t n);
 char	*ft_storage_plus_buffer(char *storage, char *buff);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
