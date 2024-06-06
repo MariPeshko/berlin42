@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "xkblib.h": "c",
+        "so_long.h": "c"
+    }
+}
