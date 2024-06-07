@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:54:35 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/04/09 19:05:41 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/07 20:08:38 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ already empty, the function returns. The function recursively calls itself with
 the next node until the end of the list is reached. Then, it frees the content
 of the current node, deallocates the node itself, and sets ‘lst’ to NULL.*/
 
-void ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	if (!lst || !del || !(*lst))
-		return;
+		return ;
 	ft_lstclear(&(*lst)->next, del);
 	del((*lst)->content);
 	free(*lst);

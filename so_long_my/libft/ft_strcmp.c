@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/07 19:56:19 by mpeshko           #+#    #+#             */
+/*   Updated: 2024/06/07 19:56:26 by mpeshko          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /* Like the strncmp() function, but compares entire strings, no need to pass
 a size.
 -	If the two strings are identical, the function returns 0, indicating

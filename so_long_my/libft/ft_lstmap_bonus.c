@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:55:25 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/04/09 19:10:57 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/07 20:06:21 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ links them together to form the resulting list. If any memory allocation fails
 during the process, it clears the already created nodes and returns NULL.
 The ‘del’ function is used to free the memory allocated for each node’s
 content if needed. */
-
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_lst;
-	t_list *elem;
+	t_list	*new_lst;
+	t_list	*elem;
 
 	new_lst = NULL;
 	if (!lst)

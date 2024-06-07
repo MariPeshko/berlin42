@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:44:48 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/07 18:14:47 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/07 20:12:52 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	load_map(t_mlx *data, char *map);
 int		count_lines(char *map);
 
 // map checking
-void  	check_map(t_mlx *data);
+void	check_map(t_mlx *data);
 int		check_borders(t_mlx *data, char **map, t_relement *assets);
 int		check_map_size(t_mlx *data); // char **map, t_relement *assets
 void	check_3_components(t_mlx *mlx, char **map);

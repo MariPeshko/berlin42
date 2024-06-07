@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:54:43 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/04/09 19:04:13 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/07 20:07:57 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ the ‘del’ function, then deallocates the memory for the node. However, it fa
 to remove ‘lst’ from the list fully, as it only sets the local ‘lst’ pointer
 to NULL. The list re-linking must be done externally.*/
 
-void ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
-		return;
+		return ;
 	del(lst->content);
 	free(lst);
 }

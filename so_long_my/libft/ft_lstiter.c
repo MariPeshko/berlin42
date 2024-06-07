@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:54:51 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/04/09 19:08:04 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/07 20:07:23 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ node’s content. If ‘lst’ or ‘f’ is NULL, the function returns. The loo
 while there are still nodes in the list. Within each iteration, the ‘f’ function
 is called with the content of the current node, and the ‘lst’ pointer is moved
 to the next node in the list.*/
-
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst)
-		return;
+		return ;
 	while (lst)
 	{
 		f(lst->content);
