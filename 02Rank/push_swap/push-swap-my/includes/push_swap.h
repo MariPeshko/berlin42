@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:56:03 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/05/17 14:09:01 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/10 19:44:35 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int         ft_apply_rrarrb(n_stack **a, n_stack **b, int c, char s);
 int         ft_apply_rarrb(n_stack **a, n_stack **b, int c, char s);
 int         ft_apply_rrarb(n_stack **a, n_stack **b, int c, char s);
 
-int         ft_lstsize(n_stack *lst);
 n_stack     *ft_lstlast(n_stack *lst);
 int         ft_min(n_stack *a);
 int         ft_max(n_stack *a);
+int         ft_lstsize(n_stack *lst);
 
 void        ft_error(void);
 void        ft_free(n_stack **lst);
