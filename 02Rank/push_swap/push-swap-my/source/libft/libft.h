@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:32:22 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/10 19:43:26 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 20:03:31 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 # include <unistd.h>
 # include <stddef.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-    void		*content;
-    struct s_list	*next;
+	void			*content;
+	struct s_list	*next;
 }			t_list;
 
-void	ft_freestr(char **lst); /// new
+void	ft_freestr(char **lst); 
 
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);

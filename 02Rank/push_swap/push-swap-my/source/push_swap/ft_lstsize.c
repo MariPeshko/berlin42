@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:55:48 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/05/12 22:49:36 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 20:14:26 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 // Calculates and returns the number of nodes in a given linked list ‘lst’.
-
-int ft_lstsize(n_stack *lst)
+int	ft_lstsize(t_stack *lst)
 {
-	n_stack *tmp;
-	int i;
+	t_stack	*tmp;
+	int		i;
 
 	tmp = lst;
 	i = 0;

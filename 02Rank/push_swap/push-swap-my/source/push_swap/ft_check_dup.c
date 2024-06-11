@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 00:53:29 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/10 19:27:49 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 20:08:07 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 // This function checks if the stack includes
 // any duplicate numbers.
-int ft_checkdup(n_stack *a)
+int	ft_checkdup(t_stack *a)
 {
-	n_stack	*tmp;
+	t_stack	*tmp;
 
 	while (a)
 	{

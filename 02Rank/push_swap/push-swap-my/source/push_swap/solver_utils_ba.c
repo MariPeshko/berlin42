@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 19:01:11 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/10 19:29:17 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 18:48:29 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // This function calculates the required amount of rotation.
 // Calculations are done for ra+rb case.
-int	ft_case_rarb_a(n_stack *a, n_stack *b, int c)
+int	ft_case_rarb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	ft_case_rarb_a(n_stack *a, n_stack *b, int c)
 
 // This function calculates the required amount of rotation.
 // Calculations are done for rra+rrb case.
-int	ft_case_rrarrb_a(n_stack *a, n_stack *b, int c)
+int	ft_case_rrarrb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ int	ft_case_rrarrb_a(n_stack *a, n_stack *b, int c)
 
 // This function calculates the required amount of rotation.
 // Calculations are done for ra+rrb case.
-int	ft_case_rarrb_a(n_stack *a, n_stack *b, int c)
+int	ft_case_rarrb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -54,7 +54,7 @@ int	ft_case_rarrb_a(n_stack *a, n_stack *b, int c)
 
 // This function calculates the required amount of rotation.
 // Calculations are done for rra+rb case.
-int	ft_case_rrarb_a(n_stack *a, n_stack *b, int c)
+int	ft_case_rrarb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 

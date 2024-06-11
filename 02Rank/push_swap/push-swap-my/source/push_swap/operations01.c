@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:28:53 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/10 19:28:57 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 20:49:28 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 // pb (push b) : take the first element at the top of a and put it
 // at the top of b. Do nothing if a is empty.
-void	ft_pb(n_stack **stack_a, n_stack **stack_b, int j)
+void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
 {
-	n_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*stack_a)
 		return ;
@@ -31,9 +31,9 @@ void	ft_pb(n_stack **stack_a, n_stack **stack_b, int j)
 
 // rb (rotate b) : shift up all elements of stack b by 1.
 // The first element becomes the last one.
-void	ft_rb(n_stack **b, int j)
+void	ft_rb(t_stack **b, int j)
 {
-	n_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*b || !(*b)->next)
 		return ;
@@ -46,12 +46,12 @@ void	ft_rb(n_stack **b, int j)
 		write(1, "rb\n", 3);
 }
 
-void ft_rr(n_stack **a, n_stack **b, int j)
+void	ft_rr(t_stack **a, t_stack **b, int j)
 {
-	n_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*a || !(*a)->next || (!*b || !(*b)->next))
-		return;
+		return ;
 	tmp = *a;
 	*a = ft_lstlast(*a);
 	(*a)->next = tmp;

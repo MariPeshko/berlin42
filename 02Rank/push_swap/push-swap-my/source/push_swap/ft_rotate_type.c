@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 14:12:35 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/10 19:28:27 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 20:22:41 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 // course, after rotation there is always one push
 // operation is left to do which i embeded to code.
 // Function is used during push from B to A.
-int	ft_rotate_type_ba(n_stack *a, n_stack *b)
+int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 {
-    int		i;
-	n_stack	*tmp;
+	int		i;
+	t_stack	*tmp;
 
 	tmp = b;
 	i = ft_case_rrarrb_a(a, b, b->nbr);
@@ -48,26 +48,26 @@ int	ft_rotate_type_ba(n_stack *a, n_stack *b)
 
 // We do operations if it’s the cheapest,
 // and we don’t change it until a cheaper one is found
-int ft_rotate_type_ab(n_stack *a, n_stack *b)
+int	ft_rotate_type_ab(t_stack *a, t_stack *b)
 {
-    int     i;
-    n_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
-    tmp = a;
-    /// i is a number of operations for first case
-    i = ft_case_rrarrb(a, b, a->nbr); // ?? 
-    // searching for lowest i, the lowest number of operations
-    while (tmp)
-    {
-        if (i > ft_case_rarb(a, b, tmp->nbr))
+	tmp = a;
+/// i is a number of operations for first case
+	i = ft_case_rrarrb(a, b, a->nbr); // ?? 
+// searching for lowest i, the lowest number of operations
+	while (tmp)
+	{
+		if (i > ft_case_rarb(a, b, tmp->nbr))
 			i = ft_case_rarb(a, b, tmp->nbr);
-        if (i > ft_case_rrarrb(a, b, tmp->nbr))
+		if (i > ft_case_rrarrb(a, b, tmp->nbr))
 			i = ft_case_rrarrb(a, b, tmp->nbr);
-        if (i > ft_case_rarrb(a, b, tmp->nbr))
+		if (i > ft_case_rarrb(a, b, tmp->nbr))
 			i = ft_case_rarrb(a, b, tmp->nbr);
-        if (i > ft_case_rrarb(a, b, tmp->nbr))
+		if (i > ft_case_rrarb(a, b, tmp->nbr))
 			i = ft_case_rrarb(a, b, tmp->nbr);
-        tmp = tmp->next;
-    }
-    return (i);    
+		tmp = tmp->next;
+	}
+	return (i);
 }

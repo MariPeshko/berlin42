@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 19:36:34 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/10 19:28:25 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/11 20:19:54 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // If the number you push from STACK_A to STACK_B is going
 // to be the new biggest or the smallest number, you should
 // place it just ABOVE the old biggest number in the STACK_B.
-int ft_apply_rarb(n_stack **a, n_stack **b, int c, char s)
+int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -28,7 +28,7 @@ int ft_apply_rarb(n_stack **a, n_stack **b, int c, char s)
 		while ((*a)->nbr != c)
 			ft_ra(a, 0);
 		while (ft_find_place_b(*b, c) > 0)
-				ft_rb(b, 0);
+			ft_rb(b, 0);
 		ft_pb(a, b, 0);
 	}
 	else
@@ -46,7 +46,7 @@ int ft_apply_rarb(n_stack **a, n_stack **b, int c, char s)
 
 // This function rotate both stack_a and stack_b in the
 // reverse direction as required amount.
-int	ft_apply_rrarrb(n_stack **a, n_stack **b, int c, char s)
+int	ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -73,7 +73,7 @@ int	ft_apply_rrarrb(n_stack **a, n_stack **b, int c, char s)
 
 // This function rotate the stack_a in reverse direction,
 // the stack_b in opposite direction of stack_a as required amount.
-int	ft_apply_rarrb(n_stack **a, n_stack **b, int c, char s)
+int	ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
@@ -96,7 +96,7 @@ int	ft_apply_rarrb(n_stack **a, n_stack **b, int c, char s)
 
 // This function rotate the stack_a in reverse direction,
 // the stack_b in opposite direction of stack_a as required amount.
-int	ft_apply_rrarb(n_stack **a, n_stack **b, int c, char s)
+int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
