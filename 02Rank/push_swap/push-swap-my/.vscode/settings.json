@@ -1,9 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "disabled",
-    "files.associations": {
-        "functional": "c",
-        "unistd.h": "c",
-        "libft.h": "c",
-        "push_swap.h": "c"
-    }
-}
