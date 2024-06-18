@@ -1,0 +1,26 @@
+get_env_values: PATH=/home/mpeshko/bin:/home/mpeshko/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+cmd_path: /home/mpeshko/bin/bean
+
+cmd_path: /home/mpeshko/bin/bean
+
+cmd_path: /usr/local/sbin/bean
+
+cmd_path: /usr/local/bin/bean
+
+cmd_path: /usr/sbin/bean
+
+cmd_path: /usr/bin/bean
+
+cmd_path: /sbin/bean
+
+cmd_path: /bin/bean
+
+cmd_path: /usr/games/bean
+
+cmd_path: /usr/local/games/bean
+
+cmd_path: /snap/bin/bean
+
+printf cmd_path: (null)
+
+
