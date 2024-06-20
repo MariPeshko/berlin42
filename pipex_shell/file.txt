@@ -1,5 +1,27 @@
 Fprintf cmd_path: /usr/bin/cat
 
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/wc
+
+Fprintf cmd_path: /usr/bin/wc
+
+Fprintf cmd_path: /usr/bin/wc
+
+Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/wc
+
 Fprintf cmd_path: (null)
 
 Fprintf cmd_path: /usr/bin/cat
@@ -8,9 +30,37 @@ Fprintf cmd_path: (null)
 
 Fprintf cmd_path: /usr/bin/cat
 
-Fprintf cmd_path: /usr/bin/cat
+Fprintf cmd_path: (null)
 
 Fprintf cmd_path: /usr/bin/cat
 
 Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: (null)
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
+
+Fprintf cmd_path: /usr/bin/cat
 

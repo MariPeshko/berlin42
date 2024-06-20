@@ -36,12 +36,6 @@ static void	file_err_msg(char *pre, char *file)
 void	pipeline_left(char **argv, char **env, int *pipe_ends)
 {
 
-	FILE * fp;
-	
-	fp = fopen("pipeline.txt", "a");
-	fprintf(fp,"pipeline_left\n\n");
-	fclose(fp);
-	
 	int	infile_fd;
 
 	if (!*argv[2])
@@ -64,10 +58,12 @@ void	pipeline_left(char **argv, char **env, int *pipe_ends)
 		perror_and_exit("dup2", pipe_ends);
 	if (close(infile_fd) == -1)
 		perror_and_exit("close", pipe_ends);
+	printf("Printf instead of call_cmd 6\n");
+	printf("%c\n", env[0][0]);
 	call_cmd(argv[2], env);
 }
 
-// Executes the right side of the process (in a child of child process).
+// Executes the right side of the process (in a second child process).
 // - Opens the output file ('outfile') specified by the fourth CL argument.
 // 	 If the outfile does not exist, it creates it with 'rw-r--r--' permissions.
 // - Closes the unused write end of the pipe.
