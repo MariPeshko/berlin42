@@ -6,24 +6,37 @@
 #    By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/27 13:18:17 by mpeshko           #+#    #+#              #
-#    Updated: 2024/06/27 17:21:40 by mpeshko          ###   ########.fr        #
+#    Updated: 2024/06/27 19:36:07 by mpeshko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		pipex
+NAME		= pipex
+NAME_B		= pipex_bonus
 
-SRCS :=		source/pipex_bonus.c \
-			source/call_cmd.c \
-			source/errors.c \
-			source/check_acces.c \
-			source/check_run_or_not.c \
-			source/wrapers.c \
-			source/open_files.c \
-			source/utils_bonus.c \
-		
-OBJS :=		$(SRCS:source/%.c=obj/%.o)
+SRCS		=	source/pipex.c \
+				source/call_cmd.c \
+				source/errors.c \
+				source/check_acces.c \
+				source/check_run_or_not.c \
+				source/wrapers.c \
+				source/open_files.c
+OBJDIR		=	obj
+OBJS		=	$(SRCS:source/%.c=$(OBJDIR)/%.o)
+MAIN		=	srcs/pipex.c
 
-HDRS := 	incl/pipex.h
+SRCS_B		=	source/pipex_bonus.c \
+				source/call_cmd.c \
+				source/errors.c \
+				source/check_acces.c \
+				source/check_run_or_not.c \
+				source/wrapers.c \
+				source/open_files.c \
+				source/utils_bonus.c
+OBJDIR_B	=	obj_b
+OBJS_B		=	$(SRCS_B:source/%.c=$(OBJDIR_B)/%.o)
+MAIN_B		=	srcs/pipex_bonus.c
+
+HDRS	= 	incl/pipex.h
 
 LIBFT_DIR =	source/libft
 LIBFT =		source/libft/libft.a
@@ -39,7 +52,7 @@ all:	$(NAME)
 # Target $(NAME) depends on object files $(OBJS) and libft library.
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
-	$(CC) -g $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o ${NAME}
 	@echo "\nNAME: OBJS - SUCCESS!\n"
 
 # Rule to define how to generate object files (%.o) from corresponding
@@ -48,23 +61,35 @@ $(NAME): $(OBJS)
 # -c:		Generates o. files without linking.
 # -o $@:	Output file name;  '$@' is replaced with target name (the o. file).
 # -$<:		Represents the first prerequisite (the c. file).
-obj/%.o: source/%.c $(HDRS)
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c -o $@ $<
+$(OBJDIR)/%.o: source/%.c $(HDRS)
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-# Target to remove all generated files.
+$(OBJDIR_B)/%.o: source/%.c $(HDRS)
+	@mkdir -p $(OBJDIR_B)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+bonus:		${NAME_B}
+
+${NAME_B}:	${OBJS_B}
+	$(CC) $(CFLAGS) ${OBJS_B} $(LIBFT) -o ${NAME_B}
+
 clean:
 	@rm -rf $(OBJS)
+	rm -rf ${OBJS_B}
 	rm -rf obj/
+	rm -rf obj_b/
 	rm -rf $(LIBFT_DIR)/*.o
 
-# Target to remove all generated files and the program executable.
 fclean:	clean
 	rm -f $(LIBFT)
 	@rm -f $(NAME)
+	rm -f $(NAME_B)
 
-# Target 're' depends on 'fclean' and 'all', rebuilding the project from scratch.
 re:	fclean all
 
-# Marking rules as 'phony' to ensure that 'make' doesn't misinterpret them as files.
-.PHONY: all clean fclean re
+re_bonus:	fclean bonus
+
+# Marking rules as 'phony' to ensure that 'make' doesn't misinterpret them
+# as files.
+.PHONY: all clean fclean re re_bonus bonus
