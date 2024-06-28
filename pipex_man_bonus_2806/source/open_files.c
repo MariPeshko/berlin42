@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 15:23:25 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/27 16:21:13 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/28 20:21:16 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,15 @@ int	open_infile(char *name_file)
 		return (file_in);
 }
 
-int	open_outfile(char *name_file)
+int	open_outfile(char *name_file, char mode)
 {
 	int	file_out;
 
-	file_out = open(name_file, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+	file_out = 0;
+	if (mode == 'p')
+		file_out = open(name_file, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+	else if (mode == 'h')
+		file_out = open(name_file, O_WRONLY | O_APPEND | O_CREAT, 0644);
 	if (access(name_file, W_OK) != 0)
 		error_permission(name_file);
 	if (file_out == -1)

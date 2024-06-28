@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_mandatory.c                                  :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 19:12:50 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/27 16:23:47 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/28 20:18:20 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pipex.h"
 #include "libft/libft.h"
 
+// Parameter 'p' - to open a file in TRUNK mode (not APPEND mode).
 void	second_child(int *fd, char **argv, char *env[], int read_first_cmd)
 {
 	int	file_out;
 
 	w_dup2(fd[0], read_first_cmd, fd[1]);
-	file_out = open_outfile(argv[4]);
+	file_out = open_outfile(argv[4], 'p');
 	if (file_out == -2)
 	{
 		close(read_first_cmd);

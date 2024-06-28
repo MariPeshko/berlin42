@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 23:22:29 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/28 15:02:56 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/06/28 20:17:13 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		check_run_or_not(char *cmd, char *env[]);
 
 // files
 int		open_infile(char *name_file);
-int		open_outfile(char *name_file);
+int     open_outfile(char *name_file, char mode);
 
 // retrieve a path to command and execute
 void	call_cmd(char *cmd, char *env[]);
@@ -49,7 +49,8 @@ void	ft_freestr(char **lst);
 void	w_dup2(int dupfd, int newfd, int fd_open);
 
 // bonus functions: checker and wrappers for fork and pipe
-void	check_args_bonus(int argc, char **argv, char *env[]);
+void	check_args_multi(int argc, char **argv, char *env[]);
+void	check_args_hdoc(int argc, char **argv, char *env[]);
 void	w_errfork_close(int open_fd, int *pipe_fd);
 void	w_errpipe_close(int open_fd);
 
