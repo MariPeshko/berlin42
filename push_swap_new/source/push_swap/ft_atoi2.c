@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:11:58 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/13 20:35:06 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/07/04 17:24:38 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_error_atoi(void)
 
 static void	wrong_format(t_stack **my_node)
 {
-	ft_free(my_node);
+	free_stack(my_node);
 	ft_error_atoi();
 }
 
@@ -31,7 +31,7 @@ static int	ft_check_int(long long int integer, t_stack **my_node)
 {
 	if ((integer) > 2147483647 || (integer) < -2147483648)
 	{
-		ft_free(my_node);
+		free_stack(my_node);
 		ft_error_atoi();
 		return (2);
 	}

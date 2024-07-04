@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:12:37 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/13 16:12:40 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/07/04 17:29:25 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 
-	a = ft_procces(argc, argv);
+	if (argc == 1)
+		exit (1);
+	a = input_into_stack(argc, argv);
 	if (!a || dup_search(a))
 	{
-		ft_free(&a);
-		ft_error();
+		free_stack(&a);
+		error_dup_exit();
 	}
 	if (!ft_checksort(a))
 		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	free_stack(&a);
+	return (7);
 }

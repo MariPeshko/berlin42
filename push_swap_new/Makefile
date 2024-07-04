@@ -3,23 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+         #
+#    By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 18:52:11 by mpeshko           #+#    #+#              #
-#    Updated: 2024/06/13 20:05:15 by mpeshko          ###   ########.fr        #
+#    Updated: 2024/07/04 16:00:25 by mpeshko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		push_swap
 
 SRCS :=		source/push_swap/main.c  \
+			source/push_swap/input_parsing.c \
 			source/push_swap/ft_atoi2.c \
-			source/push_swap/dup_search.c \
+			source/push_swap/input_dup_search.c \
 			source/push_swap/ft_checksort.c \
 			source/push_swap/ft_error.c \
 			source/push_swap/ft_free.c \
-			source/push_swap/ft_parse_args_quoted.c \
-			source/push_swap/ft_process.c \
 			source/push_swap/ft_rotate_and_push.c \
 			source/push_swap/ft_rotate_type.c \
 			source/push_swap/ft_sort_big.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:32:22 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/11 20:03:31 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/07/04 17:28:24 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }			t_list;
-
-void	ft_freestr(char **lst);
 
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);

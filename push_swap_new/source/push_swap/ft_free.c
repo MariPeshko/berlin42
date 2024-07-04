@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:18:56 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/11 20:14:19 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/07/04 17:28:06 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-void	ft_free(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -26,4 +26,19 @@ void	ft_free(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+void	free_str_arr(char **lst)
+{
+	char	*n1;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		n1 = *lst;
+		lst++;
+		free(n1);
+	}
+	*lst = NULL;
 }
