@@ -56,14 +56,4 @@ void	mix_str_int(char *argv, t_stack **a)
 			error_mix_exit();
 		}
 	}
-	// while (argv[i])
-	// {
-	// 	if (ft_strchr(&argv[i], ' ') || ft_strchr(&argv[i], 47)
-	// 	|| ft_strchr(&argv[i], 34))
-	// 	{
-	// 		ft_free(a);
-	// 		ft_error_mix();
-	// 	}
-	// 	i++;
-	// }
 }

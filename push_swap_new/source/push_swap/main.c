@@ -13,20 +13,38 @@
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_stack	*a;
+	t_stack *a;
 
 	if (argc == 1)
-		exit (1);
-	a = input_into_stack(argc, argv);
+		exit(1);
+	if (argc == 2)
+		a = one_arg(argv);
+	else
+		a = input_into_stack(argc, argv);
 	if (!a || dup_search(a))
 	{
 		free_stack(&a);
 		error_dup_exit();
 	}
-	if (!ft_checksort(a))
-		ft_sort(&a);
+	if (!check_sort(a))
+	{
+		if (ft_lstsize(a) == 2)
+			ft_sa(&a);
+		else
+			sort_algorithm(&a);
+	}
 	free_stack(&a);
-	return (7);
+	return (0);
 }
+
+// t_stack *tmp;
+	// tmp = a;
+	//int i = 1;
+	//fprintf(stderr, "Final\n");
+	// while(tmp)
+	// {
+	// 	//fprintf(stderr, "a%i: %i\n", i, tmp->nbr);
+	// 	tmp = tmp->next;
+	// }

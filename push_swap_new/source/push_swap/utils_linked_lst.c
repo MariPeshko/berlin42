@@ -13,7 +13,25 @@
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-// This function returns the last element of the stack.
+// The length of the stack.
+int	ft_lstsize(t_stack *lst)
+{
+	t_stack	*tmp;
+	int		count;
+
+	if(!lst)
+		return (0);
+	count = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		count++;
+	}
+	return (count);
+}
+
+// Returns a pointer to the last node in a stack.
 t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
@@ -21,36 +39,4 @@ t_stack	*ft_lstlast(t_stack *lst)
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
-}
-
-// This function finds and returns the smallest number
-// in the given stack.
-int	ft_min(t_stack *a)
-{
-	int	min;
-
-	min = a->nbr;
-	while (a)
-	{
-		if (min > a->nbr)
-			min = a->nbr;
-		a = a->next;
-	}
-	return (min);
-}
-
-// This function finds and returns the biggest number
-// in the given stack.
-int	ft_max(t_stack *a)
-{
-	int	max;
-
-	max = a->nbr;
-	while (a)
-	{
-		if (max < a->nbr)
-			max = a->nbr;
-		a = a->next;
-	}
-	return (max);
 }

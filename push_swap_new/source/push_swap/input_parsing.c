@@ -15,15 +15,14 @@
 
 // The functions checks every characters from input. It displays "Error" in
 // if the character if not a digit, SPACE ('32'), '-' or'+'.
-int	is_onlydigit(char **argv)
+int is_onlydigit(char **argv)
 {
-	int	h;
+	int h;
 
 	h = 0;
 	while (argv[1][h] != '\0')
 	{
-		if (argv[1][h] == 32 || argv[1][h] == 45 || argv[1][h] == 43
-			|| ft_isdigit(argv[1][h]))
+		if (argv[1][h] == 32 || argv[1][h] == 45 || argv[1][h] == 43 || ft_isdigit(argv[1][h]))
 			h++;
 		else if (!ft_isdigit(argv[1][h]))
 			return (0);
@@ -36,13 +35,13 @@ int	is_onlydigit(char **argv)
 // Then it uses ft_split to divide it to an array of strings.
 // In a loop it creates a linked list 'a', that is refer to 'stack a'.
 // In the end it frees the arrays if string and returns stack 'a'.
-t_stack	*one_arg(char **argv)
+t_stack *one_arg(char **argv)
 {
-	t_stack	*a;
-	t_stack	*node;
-	char	**strings;
-	int		i;
-	int		j;
+	t_stack *a;
+	t_stack *node;
+	char **strings;
+	int i;
+	int j;
 
 	a = NULL;
 	i = 0;
@@ -63,7 +62,7 @@ t_stack	*one_arg(char **argv)
 
 // Creating a stack if it does not exist.
 // Appending a new node to the end of the existing node.
-void	stack_birth(t_stack **lst, t_stack *node)
+void stack_birth(t_stack **lst, t_stack *node)
 {
 	// if (!lst)
 	// 	return ;
@@ -73,9 +72,9 @@ void	stack_birth(t_stack **lst, t_stack *node)
 		(ft_lstlast(*lst))->next = node;
 }
 
-t_stack	*node_birth(int content)
+t_stack *node_birth(int content)
 {
-	t_stack	*node;
+	t_stack *node;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -85,28 +84,25 @@ t_stack	*node_birth(int content)
 	return (node);
 }
 
-t_stack	*input_into_stack(int argc, char **argv)
+// Returns stack 'a' on success. If there were no only digits, or
+// the number was out of range of integer, then it
+// frees allocated memory and displays "Error".
+t_stack *input_into_stack(int argc, char **argv)
 {
-	t_stack	*a;
-	int		i;
-	int		j;
-	t_stack	*node;
+	t_stack *a;
+	t_stack *node;
+	int i;
+	int j;
 
 	a = NULL;
 	i = 1;
-	if (argc == 2)
-		a = one_arg(argv);
-	else
+	while (i < argc)
 	{
-		while (i < argc)
-		{
-			fprintf(stderr, "argv[i]: %s\n", argv[i]);
-			mix_str_int(argv[i], &a);
-			j = ft_atoi2(argv[i], &a);
-			node = node_birth(j);
-			stack_birth(&a, node);
-			i++;
-		}
+		mix_str_int(argv[i], &a);
+		j = ft_atoi2(argv[i], &a);
+		node = node_birth(j);
+		stack_birth(&a, node);
+		i++;
 	}
 	return (a);
 }

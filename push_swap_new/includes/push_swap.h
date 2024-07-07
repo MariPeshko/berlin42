@@ -50,54 +50,65 @@ int		is_onlydigit(char **argv);
 int		ft_isdigit(int c);
 int		dup_search(t_stack *a);
 
-int		ft_checksort(t_stack *stack_a);
+int		check_sort(t_stack *stack_a);
 
 // operations
-void	ft_sa(t_stack **a, int j);
+void	ft_sa(t_stack **a);
 void	ft_sb(t_stack **b, int j);
 void	ft_ss(t_stack **a, t_stack **b, int j);
-void	ft_pb(t_stack **a, t_stack **b, int j);
-void	ft_pa(t_stack **a, t_stack **b, int j);
-void	ft_ra(t_stack **a, int j);
-void	ft_rb(t_stack **b, int j);
-void	ft_rr(t_stack **a, t_stack **b, int j);
+void	ft_pb(t_stack **a, t_stack **b);
+void	ft_pa(t_stack **a, t_stack **b);
+void	ft_ra(t_stack **a);
+void	ft_rb(t_stack **b);
+void	ft_rr(t_stack **a, t_stack **b);
 void	ft_rra(t_stack **a, int j);
 void	ft_rrb(t_stack **b, int j);
 void	ft_rrr(t_stack **a, t_stack **b, int j);
 
 // sorting
-void	ft_sort(t_stack **stack_a);
-t_stack	*ft_sort_b(t_stack **stack_a);
-t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b);
-void	ft_sort_three(t_stack **stack_a);
-void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b);
-int		ft_rotate_type_ab(t_stack *a, t_stack *b);
-int		ft_rotate_type_ba(t_stack *a, t_stack *b);
-int		ft_case_rrarrb(t_stack *a, t_stack *b, int c);
-int		ft_find_place_b(t_stack *stack_b, int nbr_push);
-int		ft_find_place_a(t_stack *stack_a, int nbr_push);
-int		ft_find_index(t_stack *st, int nbr);
+void	sort_algorithm(t_stack **a);
+t_stack	*sort_push_to_b(t_stack **stack_a, t_stack **stack_b);
+t_stack	**sort_push_to_a(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack_a);
+void	sort_ascend_a(t_stack **a);
 
-int		ft_case_rarb(t_stack *a, t_stack *b, int c);
+//void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b);
+//int		choose_type_10_plus(t_stack *a, t_stack *b);
+
+// functions for pushing to stack b in descending order
+//int		alg_cheapest_ab(t_stack *a, t_stack *b);
+int		alg_cheapest_ab(t_stack *a, t_stack *b, int *index);
+
 int		ft_case_rrarrb(t_stack *a, t_stack *b, int c);
+int		ft_case_rarb(t_stack *a, t_stack *b, int c);
 int		ft_case_rarrb(t_stack *a, t_stack *b, int c);
 int		ft_case_rrarb(t_stack *a, t_stack *b, int c);
+
+// functions for pushing to stack a in ascending order
+int		ft_rotate_type_ba(t_stack *a, t_stack *b);
 
 int		ft_case_rarb_a(t_stack *a, t_stack *b, int c);
 int		ft_case_rrarrb_a(t_stack *a, t_stack *b, int c);
 int		ft_case_rarrb_a(t_stack *a, t_stack *b, int c);
 int		ft_case_rrarb_a(t_stack *a, t_stack *b, int c);
 
+// applying a chosen method
 int		ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
 int		ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
 int		ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
 int		ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
 
-// helper during sorting
+int		case_one(t_stack *a, t_stack *b, int nbr);
+int		do_case_one(t_stack **a, t_stack **b, int nbr);
+
+// helper functions during sorting
 t_stack	*ft_lstlast(t_stack *lst);
-int		ft_min(t_stack *a);
-int		ft_max(t_stack *a);
 int		ft_lstsize(t_stack *lst);
+int		min_nbr(t_stack *a);
+int		max_nbr(t_stack *a);
+int		find_place_b(t_stack *stack_b, int nbr_push);
+int		find_place_a(t_stack *stack_a, int nbr_push);
+int		position_in_stack(t_stack *stack, int nbr);
 
 // error functions
 void	error_exit(void);

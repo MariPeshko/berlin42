@@ -5,3 +5,5 @@ Error 3 in case the input consists of mix of arguments and strings, for example,
 Error 4 in case of error of stack a of the stack has duplicates.
 Error 5 when memory allocation are failed.
 Error 127 - error during atoi - invalid number.
+
+Returns 0 when success.

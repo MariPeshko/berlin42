@@ -15,7 +15,7 @@
 
 // sa (swap a) : swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements).
-void	ft_sa(t_stack **a, int j)
+void	ft_sa(t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -25,13 +25,12 @@ void	ft_sa(t_stack **a, int j)
 	*a = (*a)->next;
 	tmp->next = (*a)->next;
 	(*a)->next = tmp;
-	if (j == 0)
-		write(1, "sa\n", 3);
+	write(1, "sa\n", 3);
 }
 
 // pa (push a) : take the first element at the top of b and
 // put it at the top of a. Do nothing if b is empty.
-void	ft_pa(t_stack **a, t_stack **b, int j)
+void	ft_pa(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -41,8 +40,7 @@ void	ft_pa(t_stack **a, t_stack **b, int j)
 	*a = *b;
 	*b = (*b)->next;
 	(*a)->next = tmp;
-	if (j == 0)
-		write(1, "pa\n", 3);
+	write(1, "pa\n", 3);
 }
 
 // ss : sa and sb at the same time.
@@ -66,7 +64,7 @@ void	ft_ss(t_stack **a, t_stack **b, int j)
 
 // Shifts all the elements of the stack 'a' up by one position.
 // The first element becomes the last. 
-void	ft_ra(t_stack **a, int j)
+void	ft_ra(t_stack **a)
 {
 	t_stack	*tmp;
 	t_stack *help;
@@ -80,6 +78,5 @@ void	ft_ra(t_stack **a, int j)
 	help = tmp->next;
 	tmp->next = NULL;
 	*a = help;
-	if (j == 0)
-		write(1, "ra\n", 3);
+	write(1, "ra\n", 3);
 }

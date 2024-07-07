@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checksort.c                                     :+:      :+:    :+:   */
+/*   check_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeshko <mpeshko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 19:27:58 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/06/11 20:11:25 by mpeshko          ###   ########.fr       */
+/*   Created: 2024/07/05 11:48:06 by mpeshko           #+#    #+#             */
+/*   Updated: 2024/07/05 11:48:06 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-// This function checks if the stack is sorted.
-int	ft_checksort(t_stack *stack_a)
+// It checks if the stack is correctly sorted in ascending order.
+// If the stack is not sorted it returns 0.
+int	check_sort(t_stack *stack)
 {
-	int	i;
+	int	prev_nbr;
 
-	if (stack_a->next == NULL)
-		return (2);
-	i = stack_a->nbr;
-	while (stack_a)
+	if (!stack)
+		return (0);
+	prev_nbr = stack->nbr;
+	stack = stack->next;
+	while (stack)
 	{
-		if (i > stack_a->nbr)
+		if (prev_nbr > stack->nbr)
 			return (0);
-		i = stack_a->nbr;
-		stack_a = stack_a->next;
+		prev_nbr = stack->nbr;
+		stack = stack->next;
 	}
-	return (1);
+	return (3);
 }

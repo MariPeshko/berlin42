@@ -14,23 +14,22 @@ NAME =		push_swap
 
 SRCS :=		source/push_swap/main.c  \
 			source/push_swap/input_parsing.c \
-			source/push_swap/ft_atoi2.c \
+			source/push_swap/input_atoi2.c \
 			source/push_swap/input_dup_search.c \
-			source/push_swap/ft_checksort.c \
-			source/push_swap/ft_error.c \
-			source/push_swap/ft_free.c \
+			source/push_swap/sort_main.c \
+			source/push_swap/sort_check_a.c \
+			source/push_swap/sort_three.c \
 			source/push_swap/ft_rotate_and_push.c \
-			source/push_swap/ft_rotate_type.c \
-			source/push_swap/ft_sort_big.c \
-			source/push_swap/ft_sort_three.c \
-			source/push_swap/lst_utils00.c \
-			source/push_swap/lst_utils01.c \
+			source/push_swap/algor_cheapest_my.c \
+			source/push_swap/utils_linked_lst.c \
+			source/push_swap/utils_nbr_place.c \
 			source/push_swap/operations00.c \
 			source/push_swap/operations01.c \
 			source/push_swap/operations02.c \
 			source/push_swap/solver_utils_ab.c \
 			source/push_swap/solver_utils_ba.c \
-			source/push_swap/ft_lstsize.c
+			source/push_swap/ft_error.c \
+			source/push_swap/ft_free.c \
 
 OBJS :=		$(SRCS:source/push_swap/%.c=obj/%.o)
 

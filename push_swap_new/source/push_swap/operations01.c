@@ -15,7 +15,7 @@
 
 // pb (push b) : take the first element at the top of a and put it
 // at the top of b. Do nothing if a is empty.
-void	ft_pb(t_stack **a, t_stack **b, int j)
+void	ft_pb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -25,13 +25,12 @@ void	ft_pb(t_stack **a, t_stack **b, int j)
 	*b = *a;
 	*a = (*a)->next;
 	(*b)->next = tmp;
-	if (j == 0)
-		write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }
 
 // rb (rotate b) : shift up all elements of stack b by 1.
 // The first element becomes the last one.
-void	ft_rb(t_stack **b, int j)
+void	ft_rb(t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -42,12 +41,11 @@ void	ft_rb(t_stack **b, int j)
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
-	if (j == 0)
-		write(1, "rb\n", 3);
+	write(1, "rb\n", 3);
 }
 
 // ra and rb at the same time
-void	ft_rr(t_stack **a, t_stack **b, int j)
+void	ft_rr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -63,6 +61,5 @@ void	ft_rr(t_stack **a, t_stack **b, int j)
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
-	if (j == 0)
-		write(1, "rr\n", 3);
+	write(1, "rr\n", 3);
 }

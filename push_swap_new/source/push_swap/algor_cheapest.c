@@ -13,18 +13,14 @@
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-// This function calculate and decides which rotation
-// combination is best to use to sort the stack. Of
-// course, after rotation there is always one push
-// operation is left to do which i embeded to code.
-// Function is used during push from B to A.
-int	ft_rotate_type_ba(t_stack *a, t_stack *b)
+int ft_rotate_type_ba(t_stack *a, t_stack *b)
 {
-	int		i;
-	t_stack	*tmp;
+	int i;
+	t_stack *tmp;
 
 	tmp = b;
 	i = ft_case_rrarrb_a(a, b, b->nbr);
+	// printf("ft_rotate_type_ba. ft_case_rrarrb_a. i: %i\n", i);
 	while (tmp)
 	{
 		if (i > ft_case_rarb_a(a, b, tmp->nbr))
@@ -40,21 +36,21 @@ int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 	return (i);
 }
 
-// This function calculates and decides which rotation combination is best
-// to use to sort the stack. Of course, after rotation there is always
-// one push operation is left to do. Function is used during push from A to B.
-// If it’s the cheapest, then we don’t change it until a cheaper one is found.
-// int i is used to store the number of rotations needed.
-// i. e. 0 operations. 0 means only pb.
-int	ft_rotate_type_ab(t_stack *a, t_stack *b)
+int alg_cheapest_ab(t_stack *a, t_stack *b, int *index)
 {
-	int		i;
-	t_stack	*tmp;
+	int i;
+	int ind;
+	int cost;
+	t_stack *tmp;
 
 	tmp = a;
+	ind = 0;
 	i = ft_case_rrarrb(a, b, a->nbr);
+	//printf("ft_case_rrarrb(a, b, a->nbr): %i\n", i);
+	cost = i;
 	while (tmp)
 	{
+		//printf("nbr: %i\n", tmp->nbr);
 		if (i > ft_case_rarb(a, b, tmp->nbr))
 			i = ft_case_rarb(a, b, tmp->nbr);
 		if (i > ft_case_rrarrb(a, b, tmp->nbr))
@@ -63,7 +59,39 @@ int	ft_rotate_type_ab(t_stack *a, t_stack *b)
 			i = ft_case_rarrb(a, b, tmp->nbr);
 		if (i > ft_case_rrarb(a, b, tmp->nbr))
 			i = ft_case_rrarb(a, b, tmp->nbr);
+		if (i < cost)
+		{
+			cost = i;
+			*index = ind;
+		}
+		ind++;
 		tmp = tmp->next;
 	}
 	return (i);
 }
+
+// int choose_type_10_plus(t_stack *a, t_stack *b)
+// {
+// 	int i;
+// 	t_stack *tmp;
+// 	int fivefive;
+
+// 	fivefive = 5;
+// 	tmp = a;
+// 	i = ft_case_rrarrb(a, b, a->nbr);
+// 	while (tmp && fivefive >= 1)
+// 	{
+// 		// fprintf(stderr, "checkfor %i\n", tmp->nbr);
+// 		if (i > ft_case_rarb(a, b, tmp->nbr))
+// 			i = ft_case_rarb(a, b, tmp->nbr);
+// 		if (i > ft_case_rrarrb(a, b, tmp->nbr))
+// 			i = ft_case_rrarrb(a, b, tmp->nbr);
+// 		if (i > ft_case_rarrb(a, b, tmp->nbr))
+// 			i = ft_case_rarrb(a, b, tmp->nbr);
+// 		if (i > ft_case_rrarb(a, b, tmp->nbr))
+// 			i = ft_case_rrarb(a, b, tmp->nbr);
+// 		tmp = tmp->next;
+// 		fivefive--;
+// 	}
+// 	return (i);
+// }

@@ -13,14 +13,12 @@
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-// new. segmantation fault
+// It checks if there are duplicates on the stack.
 int dup_search(t_stack *a)
 {
 	t_stack *compare;
 
 	if (!a)
-		return (1);
-	if (!a->next)
 		return (1);
 	compare = a->next;
 	while (a->next != NULL)
