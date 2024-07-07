@@ -14,7 +14,7 @@
 #include "../libft/libft.h"
 
 // Searching for an index in stack of 'nbr'
-int position_in_stack(t_stack *stack, int nbr)
+int cur_place(t_stack *stack, int nbr)
 {
 	int i;
 
@@ -39,7 +39,7 @@ int find_place_b(t_stack *stack_b, int nbr_push)
 		i = 0;
 	else if (nbr_push > max_nbr(stack_b) || nbr_push < min_nbr(stack_b))
 	{
-		i = position_in_stack(stack_b, max_nbr(stack_b));
+		i = cur_place(stack_b, max_nbr(stack_b));
 		return (i);
 	}
 	else
@@ -66,7 +66,7 @@ int find_place_a(t_stack *stack_a, int nbr_push)
 	if (nbr_push < stack_a->nbr && nbr_push > ft_lstlast(stack_a)->nbr)
 		i = 0;
 	else if (nbr_push > max_nbr(stack_a) || nbr_push < min_nbr(stack_a))
-		i = position_in_stack(stack_a, min_nbr(stack_a));
+		i = cur_place(stack_a, min_nbr(stack_a));
 	else
 	{
 		tmp = stack_a->next;

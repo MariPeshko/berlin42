@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	if (!a || dup_search(a))
 	{
 		free_stack(&a);
-		error_dup_exit();
+		error_dup_exit(4);
 	}
 	if (!check_sort(a))
 	{

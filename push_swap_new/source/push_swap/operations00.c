@@ -44,7 +44,7 @@ void	ft_pa(t_stack **a, t_stack **b)
 }
 
 // ss : sa and sb at the same time.
-void	ft_ss(t_stack **a, t_stack **b, int j)
+void	ft_ss(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -58,8 +58,7 @@ void	ft_ss(t_stack **a, t_stack **b, int j)
 	*b = (*b)->next;
 	tmp->next = (*b)->next;
 	(*b)->next = tmp;
-	if (j == 0)
-		write(1, "ss\n", 3);
+	write(1, "ss\n", 3);
 }
 
 // Shifts all the elements of the stack 'a' up by one position.

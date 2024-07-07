@@ -46,7 +46,7 @@ t_stack *one_arg(char **argv)
 	a = NULL;
 	i = 0;
 	if (!is_onlydigit(argv))
-		error_exit();
+		error_exit(2);
 	strings = ft_split(argv[1], 32);
 	while (strings[i])
 	{
@@ -78,7 +78,7 @@ t_stack *node_birth(int content)
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
-		error_mall_exit();
+		error_mall_exit(5);
 	node->nbr = content;
 	node->next = NULL;
 	return (node);

@@ -54,16 +54,16 @@ int		check_sort(t_stack *stack_a);
 
 // operations
 void	ft_sa(t_stack **a);
-void	ft_sb(t_stack **b, int j);
-void	ft_ss(t_stack **a, t_stack **b, int j);
+void	ft_sb(t_stack **b);
+void	ft_ss(t_stack **a, t_stack **b);
 void	ft_pb(t_stack **a, t_stack **b);
 void	ft_pa(t_stack **a, t_stack **b);
 void	ft_ra(t_stack **a);
 void	ft_rb(t_stack **b);
 void	ft_rr(t_stack **a, t_stack **b);
-void	ft_rra(t_stack **a, int j);
-void	ft_rrb(t_stack **b, int j);
-void	ft_rrr(t_stack **a, t_stack **b, int j);
+void	ft_rra(t_stack **a);
+void	ft_rrb(t_stack **b);
+void	ft_rrr(t_stack **a, t_stack **b);
 
 // sorting
 void	sort_algorithm(t_stack **a);
@@ -76,16 +76,16 @@ void	sort_ascend_a(t_stack **a);
 //int		choose_type_10_plus(t_stack *a, t_stack *b);
 
 // functions for pushing to stack b in descending order
-//int		alg_cheapest_ab(t_stack *a, t_stack *b);
-int		alg_cheapest_ab(t_stack *a, t_stack *b, int *index);
+int		alg_cheapest_ab(t_stack *a, t_stack *b);
 
 int		ft_case_rrarrb(t_stack *a, t_stack *b, int c);
 int		ft_case_rarb(t_stack *a, t_stack *b, int c);
 int		ft_case_rarrb(t_stack *a, t_stack *b, int c);
 int		ft_case_rrarb(t_stack *a, t_stack *b, int c);
 
+
 // functions for pushing to stack a in ascending order
-int		ft_rotate_type_ba(t_stack *a, t_stack *b);
+int		alg_cheapest_ba(t_stack *a, t_stack *b);
 
 int		ft_case_rarb_a(t_stack *a, t_stack *b, int c);
 int		ft_case_rrarrb_a(t_stack *a, t_stack *b, int c);
@@ -101,6 +101,15 @@ int		ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
 int		case_one(t_stack *a, t_stack *b, int nbr);
 int		do_case_one(t_stack **a, t_stack **b, int nbr);
 
+int		case_two(t_stack *a, t_stack *b, int nbr);
+int		do_case_two(t_stack **a, t_stack **b, int nbr);
+
+int		case_one_b(t_stack *b, t_stack *a, int nbr);
+int		do_case_one_b(t_stack **b, t_stack **a, int nbr);
+
+int		case_two_b(t_stack *b, t_stack *a, int nbr);
+int		do_case_two_b(t_stack **b, t_stack **a, int nbr);
+
 // helper functions during sorting
 t_stack	*ft_lstlast(t_stack *lst);
 int		ft_lstsize(t_stack *lst);
@@ -108,12 +117,12 @@ int		min_nbr(t_stack *a);
 int		max_nbr(t_stack *a);
 int		find_place_b(t_stack *stack_b, int nbr_push);
 int		find_place_a(t_stack *stack_a, int nbr_push);
-int		position_in_stack(t_stack *stack, int nbr);
+int		cur_place(t_stack *stack, int nbr);
 
 // error functions
-void	error_exit(void);
-void	error_mix_exit(void);
-void	error_dup_exit(void);
-void	error_mall_exit(void);
+void	error_exit(int err_number);
+void	error_mix_exit(int err_number);
+void	error_dup_exit(int err_number);
+void	error_mall_exit(int err_number);
 
 #endif

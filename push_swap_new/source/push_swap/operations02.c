@@ -15,7 +15,7 @@
 
 // sb (swap b) : swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements).
-void	ft_sb(t_stack **b, int j)
+void	ft_sb(t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -25,13 +25,12 @@ void	ft_sb(t_stack **b, int j)
 	*b = (*b)->next;
 	tmp->next = (*b)->next;
 	(*b)->next = tmp;
-	if (j == 0)
-		write(1, "sb\n", 3);
+	write(1, "sb\n", 3);
 }
 
 // rra (reverse rotate a) : shift down all elements of stack a by 1.
 // The last element becomes the first one.
-void	ft_rra(t_stack **a, int j)
+void	ft_rra(t_stack **a)
 {
 	t_stack	*tmp;
 	int		i;
@@ -52,13 +51,12 @@ void	ft_rra(t_stack **a, int j)
 		i--;
 	}
 	tmp->next = NULL;
-	if (j == 0)
-		write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }
 
 // rrb (reverse rotate b) : shift down all elements of stack a by 1.
 // The last element becomes the first one.
-void	ft_rrb(t_stack **b, int j)
+void	ft_rrb(t_stack **b)
 {
 	t_stack	*tmp;
 	int		i;
@@ -79,12 +77,10 @@ void	ft_rrb(t_stack **b, int j)
 		i--;
 	}
 	tmp->next = NULL;
-	if (j == 0)
-		write(1, "rrb\n", 4);
+	write(1, "rrb\n", 4);
 }
 
-// Second part of the rrr function
-void	ft_rrr_sub(t_stack **b, int j)
+void	ft_rrr_sub(t_stack **b)
 {
 	t_stack	*tmp;
 	int		i;
@@ -103,12 +99,11 @@ void	ft_rrr_sub(t_stack **b, int j)
 		i--;
 	}
 	tmp->next = NULL;
-	if (j == 0)
-		write(1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 }
 
 // rrr : rra and rrb at the same time.
-void	ft_rrr(t_stack **a, t_stack **b, int j)
+void	ft_rrr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 	int		i;
@@ -129,5 +124,5 @@ void	ft_rrr(t_stack **a, t_stack **b, int j)
 		i--;
 	}
 	tmp->next = NULL;
-	ft_rrr_sub(b, j);
+	ft_rrr_sub(b);
 }

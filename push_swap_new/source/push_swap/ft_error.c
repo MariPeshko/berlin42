@@ -13,28 +13,29 @@
 #include "../../includes/push_swap.h"
 #include "../libft/libft.h"
 
-void	error_exit(void)
+void	error_exit(int err_number)
 {
 	write(2, "Error\n", 6);
-	exit(2);
+	exit(err_number);
 }
 
-void	error_mix_exit(void)
+void	error_mix_exit(int err_number)
 {
 	write(2, "Error\n", 6);
-	exit(3);
+	exit(err_number);
 }
 
-void	error_dup_exit(void)
+void	error_dup_exit(int err_number)
 {
 	write(2, "Error\n", 6);
-	exit(4);
+	exit(err_number);
 }
 
-void	error_mall_exit(void)
+// Malloc error
+void	error_mall_exit(int err_number)
 {
 	write(2, "Error\n", 6);
-	exit(5);
+	exit(err_number);
 }
 
 // Is there mix of argument and strings and any string contains not a digit or
@@ -53,7 +54,7 @@ void	mix_str_int(char *argv, t_stack **a)
 		else
 		{
 			free_stack(a);
-			error_mix_exit();
+			error_mix_exit(3);
 		}
 	}
 }

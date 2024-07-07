@@ -19,15 +19,13 @@ SRCS :=		source/push_swap/main.c  \
 			source/push_swap/sort_main.c \
 			source/push_swap/sort_check_a.c \
 			source/push_swap/sort_three.c \
-			source/push_swap/ft_rotate_and_push.c \
-			source/push_swap/algor_cheapest_my.c \
+			source/push_swap/algor_a_to_b.c \
+			source/push_swap/algor_b_to_a.c \
 			source/push_swap/utils_linked_lst.c \
 			source/push_swap/utils_nbr_place.c \
 			source/push_swap/operations00.c \
 			source/push_swap/operations01.c \
 			source/push_swap/operations02.c \
-			source/push_swap/solver_utils_ab.c \
-			source/push_swap/solver_utils_ba.c \
 			source/push_swap/ft_error.c \
 			source/push_swap/ft_free.c \
 
