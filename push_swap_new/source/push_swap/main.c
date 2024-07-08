@@ -38,13 +38,3 @@ int main(int argc, char **argv)
 	free_stack(&a);
 	return (0);
 }
-
-// t_stack *tmp;
-	// tmp = a;
-	//int i = 1;
-	//fprintf(stderr, "Final\n");
-	// while(tmp)
-	// {
-	// 	//fprintf(stderr, "a%i: %i\n", i, tmp->nbr);
-	// 	tmp = tmp->next;
-	// }

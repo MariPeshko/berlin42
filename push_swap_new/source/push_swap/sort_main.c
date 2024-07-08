@@ -31,9 +31,9 @@ void sort_ascend_a(t_stack **a)
 	}
 }
 
-t_stack **sort_push_to_a(t_stack **a, t_stack **b)
+void	sort_push_to_a(t_stack **a, t_stack **b)
 {
-	int cheapest;
+	int		cheapest;
 	t_stack *tmp;
 
 	while (*b)
@@ -43,14 +43,13 @@ t_stack **sort_push_to_a(t_stack **a, t_stack **b)
 		while (cheapest >= 0)
 		{
 			if (cheapest == case_one_b(*b, *a, tmp->nbr))
-					cheapest = do_case_one_b(b, a, tmp->nbr);
+				cheapest = do_case_one_b(b, a, tmp->nbr);
 			else if (cheapest == case_two_b(*b, *a, tmp->nbr))
 				cheapest = do_case_two_b(b, a, tmp->nbr);
 			else
 				tmp = tmp->next;
 		}
 	}
-	return (a);
 }
 
 // Pushing all integers from tha stack 'a' to the stack 'b, till either
@@ -60,7 +59,7 @@ t_stack **sort_push_to_a(t_stack **a, t_stack **b)
 // operations. In the second loop, search for the number and a case that
 // matches with the smallest number of operations. 'do_case_*' functions
 // make rotations and one push. Loop breaks since 'do_case_*' returns '-1'.
-t_stack	*sort_push_to_b(t_stack **a, t_stack **b)
+void	sort_push_to_b(t_stack **a, t_stack **b)
 {
 	int		cheapest;
 	t_stack	*tmp;
@@ -79,7 +78,6 @@ t_stack	*sort_push_to_b(t_stack **a, t_stack **b)
 				tmp = tmp->next;
 		}
 	}
-	return (*b);
 }
 
 void sort_algorithm(t_stack **a)
@@ -92,9 +90,10 @@ void sort_algorithm(t_stack **a)
 	if (ft_lstsize(*a) > 3 && !check_sort(*a))
 		ft_pb(a, &b);
 	if (ft_lstsize(*a) > 3 && !check_sort(*a))
-		b = sort_push_to_b(a, &b);
+		sort_push_to_b(a, &b);
 	if (!check_sort(*a))
 		sort_three(a);
-	a = sort_push_to_a(a, &b);
+	//a = sort_push_to_a(a, &b);
+	sort_push_to_a(a, &b);
 	sort_ascend_a(a);
 }

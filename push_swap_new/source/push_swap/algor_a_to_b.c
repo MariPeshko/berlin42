@@ -37,6 +37,7 @@ int case_two(t_stack *a, t_stack *b, int nbr)
 	int sz_a;
 	int sz_b;
 
+	operations = 0;
 	sz_a = ft_lstsize(a);
 	sz_b = ft_lstsize(b);
 	if (cur_place(a, nbr) == (sz_a - 1) && find_place_b(b, nbr) == (sz_b - 1))

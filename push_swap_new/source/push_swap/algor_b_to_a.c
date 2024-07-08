@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:17:25 by mpeshko           #+#    #+#             */
-/*   Updated: 2024/07/07 19:32:54 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/07/08 12:46:18 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int case_two_b(t_stack *b, t_stack *a, int nbr)
 	int sz_a;
 	int sz_b;
 
+	operations = 0;
 	sz_a = ft_lstsize(a);
 	sz_b = ft_lstsize(b);
 	if (cur_place(b, nbr) == (sz_b - 1) && find_place_a(a, nbr) == (sz_a - 1))

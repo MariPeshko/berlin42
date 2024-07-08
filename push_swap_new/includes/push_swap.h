@@ -67,8 +67,8 @@ void	ft_rrr(t_stack **a, t_stack **b);
 
 // sorting
 void	sort_algorithm(t_stack **a);
-t_stack	*sort_push_to_b(t_stack **stack_a, t_stack **stack_b);
-t_stack	**sort_push_to_a(t_stack **stack_a, t_stack **stack_b);
+void	sort_push_to_b(t_stack **stack_a, t_stack **stack_b);
+void	sort_push_to_a(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack_a);
 void	sort_ascend_a(t_stack **a);
 
