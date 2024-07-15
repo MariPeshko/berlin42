@@ -3,13 +3,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-// ? itoa - for negative number
-char	*ft_putnumber(int nbr)
+char *ft_putnumber(int nbr)
 {
-	char	*str_nbr;
-	int		rozriad;
-	int		tmp;
-	int		i;
+	char *str_nbr;
+	int rozriad;
+	int tmp;
+	int i;
 
 	rozriad = 1;
 	i = 0;
@@ -21,7 +20,6 @@ char	*ft_putnumber(int nbr)
 		rozriad++;
 		tmp = tmp / 10;
 	}
-	printf("rozriad is %i\n", rozriad);
 	str_nbr = malloc((sizeof(char) * rozriad) + 1);
 	if (nbr < 0)
 	{
@@ -47,60 +45,53 @@ char	*ft_putnumber(int nbr)
 	return (str_nbr);
 }
 
-void	ft_putchar(char c)
+void ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-int	ft_printf(const char *format, ...)
+void ft_specifier(char spec, va_list va)
 {
-	int		i;
-	int		amount;
-	int		n;
-	va_list	va;
-	char	*str_nmb;
+	int j = 0;
+	char *str_nmb;
+	int n;
 
-	// checking
-	// va_list, va_start, va_arg, va_end
-	// search and cound valid %
-	// in *argv[], starting from " and finishing after "
-	// (and avoiding /") counting all %c, %d, %i etc.
-	// int amount = amount of formats.
-	// compare amount  with the amount of va_args.
-	// if the quantity is not equal then free, display error.
-	i = 0;
-	amount = 0;
-	while (format[i] != '\0')
+	if (spec == 'i' || spec == 'd')
 	{
-		if (format[i] == '%')
-			amount++;
-		i++;
+		n = va_arg(va, int);
+		str_nmb = ft_putnumber(n);
+		j = 0;
+		while (str_nmb[j] != '\0')
+			ft_putchar(str_nmb[j++]);
+		free(str_nmb);
 	}
+}
+
+int ft_printf(const char *format, ...)
+{
+	int i;
+	va_list va;
+
+	i = 0;
 	va_start(va, format);
-	// if %i or %d - it is integer
-	n = va_arg(va, int); // n = va_arg(va, char)
-	printf("Number is %i\n", n);
-	va_end(va);
-	str_nmb = ft_putnumber(n);
-	// parsing: ft_split, (" char %c, %i, %s")
-	// %d - int %f - float
-	// writing: ft_putchar(), ft_putnumber, hexadecimal_to_string
-	i = 0;
 	while (format[i] != '\0')
 	{
-		ft_putchar(format[i]);
+		if (format[i] != '%')
+			ft_putchar(format[i]);
+		else
+		{
+			i++;
+			ft_specifier(format[i], va);
+		}
 		i++;
 	}
-	i = 0;
-	while (str_nmb[i] != '\0')
-		ft_putchar(str_nmb[i++]);
-	free(str_nmb);
+	va_end(va);
 	return (0);
 }
 
-int	main(void)
+int main(void)
 {
-	ft_printf("Type %i\n", 10);
-	// write(1, "\nc\n", 3);
+	int 	nbr = 1032;
+	ft_printf("Type int %i - great job!\n", nbr);
 	return (0);
 }
