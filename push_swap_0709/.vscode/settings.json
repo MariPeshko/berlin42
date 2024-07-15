@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "libft.h": "c",
-        "push_swap.h": "c",
-        "random": "c"
-    }
-}
