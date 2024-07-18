@@ -72,6 +72,26 @@ void character(va_list va)
 	ft_putchar(c);
 }
 
+// recursively
+void ft_put_uint(unsigned int n)
+{
+	if (n >= 10)
+		ft_put_uint(n / 10);
+	ft_putchar(n % 10 + '0');
+}
+
+// why printf after everything??? with /n is fine?
+void u_integer(va_list va)
+{
+	unsigned int n;
+
+	n = va_arg(va, unsigned int);
+	/// what?
+	//printf("%u", n);
+	//printf("%u\n", n);
+	ft_put_uint(n);
+}
+
 void integer(va_list va)
 {
 	int j = 0;
@@ -88,7 +108,7 @@ void integer(va_list va)
 	free(str_nmb);
 }
 
-void ft_specifier(char spec, va_list va)
+int ft_specifier(char spec, va_list va)
 {
 	if (spec == 'i' || spec == 'd')
 		integer(va);
@@ -96,47 +116,62 @@ void ft_specifier(char spec, va_list va)
 		character(va);
 	else if (spec == 's')
 		string(va);
+	else if (spec == 'u')
+		u_integer(va);
 	// (spec == 'u')
 	// (spec == 'x')
 	// (spec == 'X')
 	// (spec == 'p')
 	else
 		ft_putchar(spec);
+	return (0);
 }
 
 int ft_printf(const char *format, ...)
 {
+	int count;
 	int i;
 	va_list va;
 
 	i = 0;
+	count = 0;
+	if (!(*format) || !format)
+		return (0);
+
 	va_start(va, format);
+	// to count a 'count'
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
 			ft_putchar(format[i]);
-		else
+		else if (format[i] == '%' && format[i + 1])
 		{
 			i++;
 			ft_specifier(format[i], va);
 		}
+		else
+			ft_putchar(format[i]);
 		i++;
 	}
 	va_end(va);
-	return (0);
+	return (count);
 }
 
 int main(void)
 {
-	//int nbr = -2147483648;
-	//int nbr = -2147483647;
+	// int nbr = -2147483648;
+	// int nbr = -2147483647;
 	int nbr = 2147483647;
+	unsigned int ui = 4294967295;
 	char c = 'A';
 	char *string;
 
 	string = "it is a string";
 	// ft_printf("Type int %d - great job!\n", nbr);
 	// ft_printf("Type int %c - great job!\n", c);
-	ft_printf("Type int %s - great job!\n", string);
+	//ft_printf("Type int %s - great %job!%\n", string);
+	// printf("Type int %s - great %job!%\n", string);
+	ft_printf("Type int %u - great job!\n", ui);
+
 	return (0);
 }
