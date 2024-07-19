@@ -81,15 +81,17 @@ void ft_put_uint(unsigned int n)
 }
 
 // why printf after everything??? with /n is fine?
-void u_integer(va_list va)
+int u_integer(unsigned int n)
 {
-	unsigned int n;
+	// unsigned int n;
 
-	n = va_arg(va, unsigned int);
+	// n = va_arg(va, unsigned int);
 	/// what?
-	//printf("%u", n);
+	write(1, "c", 1);
+	printf("%u!\n", n);
+	return (0);
 	//printf("%u\n", n);
-	ft_put_uint(n);
+	//ft_put_uint(n);
 }
 
 void integer(va_list va)
@@ -99,17 +101,21 @@ void integer(va_list va)
 	int n;
 
 	n = va_arg(va, int);
-	str_nmb = ft_putnumber(n);
-	j = 0;
-	if (!str_nmb)
-		return;
-	while (str_nmb[j] != '\0')
-		ft_putchar(str_nmb[j++]);
-	free(str_nmb);
+	//fprintf(stderr, "%i", n);
+	printf("%i", n);
+	// str_nmb = ft_putnumber(n);
+	// j = 0;
+	// if (!str_nmb)
+	// 	return;
+	// while (str_nmb[j] != '\0')
+	// 	ft_putchar(str_nmb[j++]);
+	// free(str_nmb);
 }
 
 int ft_specifier(char spec, va_list va)
 {
+	int	i;
+	
 	if (spec == 'i' || spec == 'd')
 		integer(va);
 	else if (spec == 'c')
@@ -117,7 +123,7 @@ int ft_specifier(char spec, va_list va)
 	else if (spec == 's')
 		string(va);
 	else if (spec == 'u')
-		u_integer(va);
+		i = u_integer(va_arg(va, unsigned int));
 	// (spec == 'u')
 	// (spec == 'x')
 	// (spec == 'X')
@@ -161,17 +167,18 @@ int main(void)
 {
 	// int nbr = -2147483648;
 	// int nbr = -2147483647;
-	int nbr = 2147483647;
+	int nbr = 55;
+	//int nbr = 2147483647;
 	unsigned int ui = 4294967295;
 	char c = 'A';
 	char *string;
 
 	string = "it is a string";
-	// ft_printf("Type int %d - great job!\n", nbr);
+	ft_printf("Type int %d - great job!\n", nbr);
 	// ft_printf("Type int %c - great job!\n", c);
 	//ft_printf("Type int %s - great %job!%\n", string);
 	// printf("Type int %s - great %job!%\n", string);
-	ft_printf("Type int %u - great job!\n", ui);
+	//ft_printf("Type int %u - great job!\n", ui);
 
 	return (0);
 }
