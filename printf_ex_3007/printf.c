@@ -87,8 +87,8 @@ void u_integer(va_list va)
 
 	n = va_arg(va, unsigned int);
 	/// what?
-	//printf("%u", n);
-	//printf("%u\n", n);
+	// printf("%u", n);
+	// printf("%u\n", n);
 	ft_put_uint(n);
 }
 
@@ -108,21 +108,47 @@ void integer(va_list va)
 	free(str_nmb);
 }
 
+// тут ми створюємо стрінгу, в яку перетворимо наш size_t
+// у аресу. запишемо з кінця на перед.
+// і put_char робимо декрементуючи стрінгу
+// перше число - останнє у стрінзі
+void deci_to_hexa(size_t number)
+{
+
+	char *hex = "0123456789abcdef";
+	char *result;
+	int i = 0;
+	int j = 0;
+
+	if (number <= 15)
+	{
+		result[i] = hex[j];
+		i++;
+	}
+
+	// while (number > 9)
+	// {
+	// 	j = number / 16;
+	// 	number = number - (number * j);
+	// 	result[i] = hex[j];
+	// }
+	write(1, "0x", 2);
+	result[i] = '\0';
+	i = 0;
+	while (result[i] != '\0')
+	{
+		putchar(result[i]);
+		i++;
+	}
+}
+
 void pointer(va_list va)
 {
-	size_t	pointer;
+	size_t pointer;
 
-	// size_t - 8 byte on 64-bit system.
-	// why size_t is used for pointer?
-	// can it be long unsigned int? 
 	pointer = va_arg(va, size_t);
-	fprintf(stderr, "%p\n", pointer);
-	fprintf(stderr, "%ld\n", pointer);
-	//deci_to_hexa(pointer);
-	// тут ми створюємо стрінгу, в яку перетворимо наш size_t 
-	// у аресу. запишемо з кінця на перед.
-	// і put_char робимо декрементуючи стрінгу
-	// перше число - останнє у стрінзі
+	// fprintf(stderr, "stderr %ld\n", pointer);
+	deci_to_hexa(pointer);
 }
 
 int ft_specifier(char spec, va_list va)
@@ -180,21 +206,23 @@ int main(void)
 	// int nbr = -2147483648;
 	// int nbr = -2147483647;
 	int nbr = 2147483647;
-	unsigned int ui = 4294967295;
-	char c = 'A';
-	char *string;
-	int *p = &nbr;
-	//int *p = NULL;
+	// unsigned int ui = 4294967295;
+	// char c = 'A';
 
-	string = "it is a string";
+	int *p = &nbr;
+	// int *p = NULL;
+
+	// char *string;
+	// string = "it is a string";
+
 	// ft_printf("Type int %d - great job!\n", nbr);
 	// ft_printf("Type int %c - great job!\n", c);
-	//ft_printf("Type int %s - great %job!%\n", string);
+	// ft_printf("Type int %s - great %job!%\n", string);
 	// printf("Type int %s - great %job!%\n", string);
-	//ft_printf("Type int %u - great job!\n", ui);
+	// ft_printf("Type int %u - great job!\n", ui);
 
 	ft_printf("Type pointer %p - great job!\n", p);
-	printf("pointer %p\n", p);
+	printf("printf pointer %p\n", p);
 
 	return (0);
 }
