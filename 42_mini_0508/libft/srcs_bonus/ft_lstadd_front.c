@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mstracke <mstracke@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 10:02:41 by mstracke          #+#    #+#             */
-/*   Updated: 2024/07/16 10:06:15 by mstracke         ###   ########.fr       */
+/*   Created: 2024/01/01 18:34:46 by mpeshko           #+#    #+#             */
+/*   Updated: 2024/06/07 20:09:06 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-/**
- * free an array of strings
- * 
- * @param arr the array of strings to free
- */
-void	ft_free(char **arr)
+// Adds the given element ‘new’ to the front of the linked list
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	arr = NULL;
+	new->next = *lst;
+	*lst = new;
 }

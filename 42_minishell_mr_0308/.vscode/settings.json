@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "history.h": "c",
-        "errno.h": "c",
-        "wait.h": "c"
-    }
-}

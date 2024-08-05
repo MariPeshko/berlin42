@@ -6,7 +6,7 @@
 /*   By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:20:13 by mstracke          #+#    #+#             */
-/*   Updated: 2024/08/03 22:44:50 by mpeshko          ###   ########.fr       */
+/*   Updated: 2024/08/05 19:46:03 by mpeshko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,31 @@
 //it is "a good practice" to use a global variable for environment instead of picking it in the main
 extern char	**environ;
 
-typedef enum e_tokentype {
-    CMD_BUILTIN,
-    CMD_EXECUTABLE
-} t_tokentype;
+// Struct representing command data
+typedef struct s_data
+{
+	int infile; // Input file descriptor (defaults to stdin)
+	int outfile; // Output file descriptor (defaults to stdout)
+	char			**cmd; // Command and arguments
+}					t_data;
 
-typedef struct s_data {
-    int infile;       // Input file descriptor (defaults to stdin)
-    int outfile;      // Output file descriptor (defaults to stdout)
-    char **cmd;       // Command and arguments
-    t_tokentype type; // Type of the command
-} t_data;
+// Linked list containing a s_data nodes with
+// all commands separated by pipes
+typedef struct s_list
+{
+	t_data			*cmds; // Command data
+	struct t_list	*next; // Pointer to the next list node
+}					t_list;
 
+// Main struct containing the list of commands and
+// a copy of the environment
+typedef struct s_big
+{
+	t_list			*list; // Linked list of commands
+	char			**env; // Copy of environment variables
+}					t_big;
+
+////////////////////////////
 //maybe rename to bin_path for binary path
 typedef struct s_envp{
 	char	**bin_paths;
@@ -58,9 +71,6 @@ typedef struct s_envp{
 	size_t	commands_no;
 }				t_envp;
 
-//required functions from libft
-//
-//f
 
 // main.c
 //
@@ -84,7 +94,9 @@ void	error_handling(int err);
 char	**create_nodes(char *readline_str);
 char	**ft_split_quotes(char const *s, char c);
 
-// new
-void    parser(char **input_arr);
+// new Marina's functions
+int		is_open_pipe(char *clean_input);
+char	*extra_prompt(void);
+char	**add_extra_input(char **input_arr, char *extra_input);
 
 #endif

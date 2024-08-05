@@ -6,7 +6,7 @@
 #    By: mpeshko <mpeshko@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 09:59:44 by mstracke          #+#    #+#              #
-#    Updated: 2024/08/03 22:48:41 by mpeshko          ###   ########.fr        #
+#    Updated: 2024/08/05 18:25:59 by mpeshko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS =	main.c \
 		error_handling.c \
 		ft_split_quotes.c \
 		lexer.c \
-		parser.c
+		extra_prompt.c
 #		inputcheck.c \
 #		exe.c \
 #		utils.c
